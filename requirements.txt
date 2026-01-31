@@ -1,0 +1,6 @@
+# зависимости проекта
+selenium
+requests
+pytest
+allure-pytest
+pytest-html
