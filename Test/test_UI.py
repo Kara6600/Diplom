@@ -21,12 +21,12 @@ service = ChromeService(ChromeDriverManager().install())
 # driver = webdriver.Chrome(service=service)
 
 
-@pytest.fixture
-def driver():
-    # Инициализация драйвера Chrome
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
+# @pytest.fixture
+# def driver():
+#     # Инициализация драйвера Chrome
+#     driver = webdriver.Chrome()
+#     yield driver
+#     driver.quit()
 
 
 @pytest.mark.ui
@@ -34,22 +34,22 @@ def driver():
 @allure.title("поиск по названию")
 def test_kinopoisk_search(driver):
     try:
-        with allure.step("Переход на страницу 'https://www.kinopoisk.ru'"):
-            driver.get(BASE_URL)
+        # with allure.step("Переход на страницу 'https://www.kinopoisk.ru'"):
+        #     driver.get(BASE_URL)
 
-        with allure.step("Добавляем куки и обновляем страницу"):
-            driver.add_cookie(cookie_DR)
-            driver.refresh()
+        # with allure.step("Добавляем куки и обновляем страницу"):
+        #     driver.add_cookie(cookie_DR)
+        #     driver.refresh()
 
         wait = WebDriverWait(driver, 10)
 
-        with allure.step("Ждем чекбокс 'CheckboxCaptcha-Anchor' и кликаем"):
-            checkbox_anchor = wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
-                )
-            )
-            checkbox_anchor.click()
+        # with allure.step("Ждем чекбокс 'CheckboxCaptcha-Anchor' и кликаем"):
+        #     checkbox_anchor = wait.until(
+        #         EC.element_to_be_clickable(
+        #             (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
+        #         )
+        #     )
+        #     checkbox_anchor.click()
 
         with allure.step("Ждем поле поиска 'kp_query' и вводим запрос 'Оно'"):
             input_field = wait.until(
@@ -73,22 +73,22 @@ def test_kinopoisk_search(driver):
 @allure.title("Выставление оценки фильму на Кинопоиске")
 def test_kinopoisk_review(driver):
     try:
-        with allure.step("Переход на страницу 'https://www.kinopoisk.ru'"):
-            driver.get(BASE_URL)
+        # with allure.step("Переход на страницу 'https://www.kinopoisk.ru'"):
+        #     driver.get(BASE_URL)
 
-        with allure.step("Добавляем куки и обновляем страницу"):
-            driver.add_cookie(cookie_DR)
-            driver.refresh()
+        # with allure.step("Добавляем куки и обновляем страницу"):
+        #     driver.add_cookie(cookie_DR)
+        #     driver.refresh()
 
         wait = WebDriverWait(driver, 10)
 
-        with allure.step("Ждем чекбокс 'CheckboxCaptcha-Anchor' и кликаем"):
-            checkbox_anchor = wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
-                    )
-                )
-            checkbox_anchor.click()
+        # with allure.step("Ждем чекбокс 'CheckboxCaptcha-Anchor' и кликаем"):
+        #     checkbox_anchor = wait.until(
+        #         EC.element_to_be_clickable(
+        #             (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
+        #             )
+        #         )
+        #     checkbox_anchor.click()
 
         with allure.step("Ждем поле поиска 'kp_query' и вводим запрос 'Оно'"):
             input_field = wait.until(
@@ -145,23 +145,23 @@ def test_kinopoisk_review(driver):
 @allure.title("Поиск по жанру на Кинопоиске")
 def test_kinopoisk_search_genre(driver):
     try:
-        with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
-            driver.get(BASE_URL)
+        # with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
+        #     driver.get(BASE_URL)
 
-        with allure.step("Добавляем куки и обновляем страницу"):
-            driver.add_cookie(cookie_DR)
-            driver.refresh()
+        # with allure.step("Добавляем куки и обновляем страницу"):
+        #     driver.add_cookie(cookie_DR)
+        #     driver.refresh()
 
         wait = WebDriverWait(driver, 10)
 
-        with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
-            wait = WebDriverWait(driver, 10)
-            checkbox_anchor = wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
-                )
-            )
-            checkbox_anchor.click()
+        # with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
+            # wait = WebDriverWait(driver, 10)
+        #     checkbox_anchor = wait.until(
+        #         EC.element_to_be_clickable(
+        #             (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
+        #         )
+        #     )
+        #     checkbox_anchor.click()
         with allure.step("Кликаем на расширенный поиск (иконка SVG)"):
             svg_element = WebDriverWait(driver, 20).until(
                 EC.element_to_be_clickable((
@@ -210,21 +210,21 @@ def test_kinopoisk_search_genre(driver):
 @allure.title("поиск по стране")
 def test_kinopoisk_search_coutry(driver):
     try:
-        with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
-            driver.get(BASE_URL)
+        # with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
+        #     driver.get(BASE_URL)
 
-        with allure.step("Добавляем куки и обновляем страницу"):
-            driver.add_cookie(cookie_DR)
-            driver.refresh()
+        # with allure.step("Добавляем куки и обновляем страницу"):
+        #     driver.add_cookie(cookie_DR)
+        #     driver.refresh()
 
-        with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
-            wait = WebDriverWait(driver, 10)
-            checkbox_anchor = wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
-                )
-            )
-            checkbox_anchor.click()
+        # with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
+        #     wait = WebDriverWait(driver, 10)
+        #     checkbox_anchor = wait.until(
+        #         EC.element_to_be_clickable(
+        #             (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
+        #         )
+        #     )
+        #     checkbox_anchor.click()
 
         with allure.step("Кликаем на расширенный поиск (иконка SVG)"):
             svg_element = WebDriverWait(driver, 20).until(
@@ -284,21 +284,21 @@ def test_kinopoisk_search_coutry(driver):
 @allure.title("# поиск сериалов в период времени")
 def test_kinopoisk_search_time_dist(driver):
     try:
-        with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
-            driver.get(BASE_URL)
+        # with allure.step("Открываем страницу 'https://www.kinopoisk.ru'"):
+        #     driver.get(BASE_URL)
 
-        with allure.step("Добавляем куки и обновляем страницу"):
-            driver.add_cookie(cookie_DR)
-            driver.refresh()
+        # with allure.step("Добавляем куки и обновляем страницу"):
+        #     driver.add_cookie(cookie_DR)
+        #     driver.refresh()
 
-        with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
-            wait = WebDriverWait(driver, 10)
-            checkbox_anchor = wait.until(
-                EC.element_to_be_clickable(
-                    (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
-                )
-            )
-            checkbox_anchor.click()
+        # with allure.step("Ждем и кликаем чекбокс 'CheckboxCaptcha-Anchor'"):
+        #     wait = WebDriverWait(driver, 10)
+        #     checkbox_anchor = wait.until(
+        #         EC.element_to_be_clickable(
+        #             (By.CLASS_NAME, 'CheckboxCaptcha-Anchor')
+        #         )
+        #     )
+        #     checkbox_anchor.click()
 
         with allure.step("Кликаем на расширенный поиск SVG"):
             svg_element = WebDriverWait(driver, 20).until(
