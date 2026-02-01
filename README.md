@@ -30,4 +30,4 @@ bash
 
 pytest
 
-ссылка на финальный проект по ручному тестированию: https://kartsev-a.yonote.ru/doc/kursovaya-rabota-api-4gOodpuZn7
+ссылка на финальный проект по ручному тестированию: https://kartsev-a.yonote.ru/share/68fd1e3f-3cd7-4670-94b2-2ec67e10abe3
